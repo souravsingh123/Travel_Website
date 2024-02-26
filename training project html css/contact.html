@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CONTACT</title>
+  <style>
+    body {
+      margin: 0px 5px;
+      /* background-image: url("./mountain.jpg"); */
+      background-color: #cccccc;
+      height: 500px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* position: relative; */
+    }
+
+    a {
+      margin: 0px;
+      margin-left: 1330px;
+      text-decoration: none;
+      font-size: 20px;
+      position: fixed;
+
+    }
+
+    a:hover {
+      color: rgb(205, 215, 220);
+    }
+
+    input {
+      margin: 5px;
+
+    }
+
+    button {
+      margin-left: 45px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="project.html" target="_self">HOME</a>
+  <form action="" onsubmit="return validate()">
+    <div class="con">
+      First name = <input type="text" placeholder="Enter first name" id="firstname"><br>
+
+      Last name = <input type="text" placeholder="Enter last name" id="lastname"><br>
+      <div>
+      <input type="radio" name="gender">Male
+      <input type="radio" name="gender">Female
+    </div> <br>
+
+      email = <input type="email" placeholder="email" id="email">
+
+      <p>Phone number = <input type="tel" placeholder="phone number" id="number"></p>
+      <p>Number of travelers = <input type="number" placeholder="Enter number" id="travelers"></p>
+      <select name="PLACES" id="city">
+        <option  >SELECT</option>
+        <option value="CHANDIGARH">CHANDIGARH</option>
+        <option value="AMRITSAR">AMRITSAR</option>
+        <option value="PATHANKOT">PATHANKOT</option>
+        <option value="BHATINDA">BHATINDA</option>
+        <option value="LUDHIANA">LUDHIANA</option>
+        <option value="HARIKE">HARIKE</option>
+        <option value="JALLIANWALA BAGH">JALLIANWALA BAGH</option>
+        <option value="MOHALI">MOHALI</option>
+      </select><br>
+      <button type="button" onclick="validate()">submit</button>
+  </form>
+
+
+  </div>
+
+
+</body>
+<script>
+  function validate() {
+    // first name
+    var firstname = document.getElementById("firstname").value;
+    if (firstname == "") {
+      alert("first name required");
+      return false;
+    }
+    if (!isNaN(firstname)) {
+      alert("only characters required");
+      return false;
+    }
+
+    // last name
+
+    var lastname = document.getElementById("lastname").value;
+    if (lastname == "") {
+      alert("last name required");
+      return false;
+    }
+    if (!isNaN(lastname))
+    {
+      alert("only characters required");
+    return false;
+    }
+
+     // gender
+     var gender = document.getElementsByName("gender");
+     if(!(gender[0].checked ||gender[1].checked)){
+      alert("gender reqired");
+      return false;
+     }
+     
+     
+
+    // email
+    var email = document.getElementById("email").value;
+    if(email == "")
+    {
+      alert("email required");
+      return false;
+    }
+    if(email.indexOf("@") == 0)
+    {
+      alert("@ at invalid position");
+      return false;
+    }
+
+    //number
+    var number = document.getElementById("number").value;
+    if(number== ""){
+      alert("number required");
+      return false;
+    } 
+    if(number.length!=10)
+    {
+      alert("write correct number");
+      return false;
+    }
+    if(isNaN(number))
+    {
+      alert("only digits required");
+      return false;
+    }
+
+    // number of travelers
+
+    var travelers = document.getElementById("travelers").value;
+    if(travelers == "")
+    {
+      alert("travelers required");
+      return false;
+    }
+
+    // places
+    
+    var places = document.getElementById("city").value;
+    if(places == "SELECT")
+    {
+      alert("please select city");
+      return false;
+    }
+}
+</script>
+
+</html>
